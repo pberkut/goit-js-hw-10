@@ -25,16 +25,21 @@ ul {
 }
 
 .flag-img {
+  outline: 1px solid grey;
+}
+
+.country-list .flag-img {
   width: 25px;
 }
 
-.name-country {
+.country-list .name-country {
   font-size: 14px;
   font-weight: 500;
 }
 
 .country-info .name-country {
   font-size: 30px;
+  font-weight: 700;
 }
 
 .country-info .flag-img {
@@ -42,7 +47,7 @@ ul {
 }
 
 .country-info .item {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
 }
 

@@ -31,13 +31,14 @@ function getCountries(countries) {
     clearMarkup();
     markupCountryList(countries);
   } else if (countries.length > 10) {
+    clearMarkup();
     Notiflix.Notify.info(
       'Too many matches found. Please enter a more specific name.'
     );
   }
 }
 
-function fetchError(error) {
+function fetchError() {
   Notiflix.Notify.failure('Oops, there is no country with that name');
 }
 
