@@ -14,26 +14,26 @@ const countryInfoRef = document.querySelector('.country-info');
 inputRef.addEventListener('input', debounce(onSearch, DEBOUNCE_DELAY));
 
 function onSearch(e) {
-  const queryCountries = e.target.value.trim();
+  const nameCountries = e.target.value.trim();
 
-  if (!queryCountries) {
-    clearMarkup();
+  clearMarkup();
+
+  if (!nameCountries) {
     return;
   }
-  fetchCountries(queryCountries).then(getCountries).catch(fetchError);
+  fetchCountries(nameCountries).then(getCountries).catch(fetchError);
 }
 
 function getCountries(countries) {
-  if (countries.length === 1) {
-    clearMarkup();
+  const amountCountries = countries.length;
+
+  if (amountCountries === 1) {
     markupCountryInfo(...countries);
-  } else if (countries.length >= 2 && countries.length <= 10) {
-    clearMarkup();
+  } else if (amountCountries >= 2 && amountCountries <= 10) {
     markupCountryList(countries);
-  } else if (countries.length > 10) {
-    clearMarkup();
+  } else if (amountCountries > 10) {
     Notiflix.Notify.info(
-      'Too many matches found. Please enter a more specific name.'
+      `Too many matches found. Amount: ${amountCountries} Please enter a more specific name.`
     );
   }
 }
@@ -53,7 +53,11 @@ function markupCountryInfo(country) {
 
   const languagesCountry = Object.values(languages).join(', ');
 
-  const markup = `<p class="country"><img class="flag-img" src="${urlFlags}" alt="${name}"> <span class="name-country">${name}</span></p>
+  const markup = `
+  <p class="country">
+  <img class="flag-img" src="${urlFlags}" alt="${name}">
+  <span class="name-country">${name}</span>
+  </p>
   <ul>
   <li class="item">Capital: <span class="text">${capital}</span></li>
   <li class="item">Population: <span class="text">${population}</span></li>
@@ -66,7 +70,11 @@ function markupCountryInfo(country) {
 function markupCountryList(countries) {
   const markup = countries
     .map(({ name: { official: name }, flags: { svg: flags } }) => {
-      return ` <li><img class="flag-img" src="${flags}" alt="${name}"> <span class="name-country">${name}</span></li>`;
+      return `
+      <li>
+      <img class="flag-img" src="${flags}" alt="${name}">
+      <span class="name-country">${name}</span>
+      </li>`;
     })
     .join('');
 
