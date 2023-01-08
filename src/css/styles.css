@@ -32,3 +32,20 @@ ul {
   font-size: 14px;
   font-weight: 500;
 }
+
+.country-info .name-country {
+  font-size: 30px;
+}
+
+.country-info .flag-img {
+  width: 50px;
+}
+
+.country-info .item {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.country-info .text {
+  font-weight: 400;
+}
