@@ -18,3 +18,17 @@ body {
   max-width: 320px;
   margin-bottom: 16px;
 }
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+.flag-img {
+  width: 25px;
+}
+
+.name-country {
+  font-size: 14px;
+  font-weight: 500;
+}
