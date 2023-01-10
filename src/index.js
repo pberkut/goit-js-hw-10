@@ -38,8 +38,10 @@ function getCountries(countries) {
   }
 }
 
-function fetchError() {
-  Notiflix.Notify.failure('Oops, there is no country with that name');
+function fetchError(error) {
+  Notiflix.Notify.failure(
+    `Oops, there is no country with that name. \n ${error}`
+  );
 }
 
 function markupCountryInfo(country) {
