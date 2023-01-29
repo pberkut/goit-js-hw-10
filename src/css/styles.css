@@ -12,6 +12,11 @@ body {
   line-height: 1.5;
 }
 
+label {
+  display: flex;
+  flex-direction: column;
+}
+
 #search-box {
   font: inherit;
   padding: 8px;
